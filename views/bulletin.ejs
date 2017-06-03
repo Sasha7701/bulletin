@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Bulletin</title>
+	</head>
+
+	<body>
+		<% if (message) { %>
+			<p><%- message %></p>
+		
+		   <% } %>
+
+		<!-- <form action= "/search" method="get">
+			<input type="text" name="search" placeholder="Search for items"/>
+			<button>Search</button>
+		</form> -->
+
+		<h1>Messages</h1>
+		<hr>
+		<% if (title.length === 0) { %>
+		 <h2>No Messages</h2>
+         <% } else { %>
+		<table>
+			<% for (let i = 0; i < title.length; i++) { %>
+				<tr>
+					<td><%= title[i].id %></td>
+					<td><%= title[i].title %></td>
+					<td><%= title[i].body %></td>
+					<td><%= title[i].created %></td>
+				</tr>
+			<% } %>
+		</table>
+	  <% } %>	
+		<hr>
+		<!-- <form action="/" method="post">
+			<input type="text" name="title" placeholder="title"/>
+			<input type="text" name="body" placeholder="body"/>
+			<button>Add</button>
+		    
+		</form> -->
+		<!-- <form action="/delete" method="delete">
+			<input type="text" name="delete" placeholder="Delete title"/>
+			<button formmethod="delete">DELETE</button> 
+			</form> -->
+	</body>
+</html>
+
