@@ -33,10 +33,14 @@ app.get("/", function(req, res) {
 
 
 app.post("/", function(req, res) {
-	if (req.body.title === "")
+	if (req.body.title === "") {
 		res.redirect("/add?msg=please%20enter%20title&tt=&bd=" + req.body.body);
-	else if (req.body.body === "")
+	return;
+	}
+	else if (req.body.body === "") {
 		res.redirect("/add?msg=please%20enter%20body&bd=&tt=" + req.body.title);
+	return;
+	}
 	Bulletin.add([req.body.title, req.body.body])
 		.then(function() {
 			renderMessages(res, "Saved " + req.body.title);
