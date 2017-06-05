@@ -19,7 +19,7 @@ function renderMessages(res, message) {
 		.then(function(title, body) {
 			res.render("bulletin", {
 				title: title,
-				body: body,
+				// body: body,
 				message: message,
 
 			});
@@ -53,6 +53,7 @@ app.post("/", function(req, res) {
 });
 
 app.get("/add", function(req, res) {
+	// res.json(req.query)
    console.log(req);
 	res.render("add", {
 				tt: req.query.tt,
